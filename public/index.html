@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android System Update</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .terminal {
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00ff00;
+            animation: scan 3s linear infinite;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .output {
+            margin: 20px 0;
+            text-align: left;
+            max-width: 600px;
+        }
+        .warning {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #f00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .secret-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scan-line"></div>
+    
+    <!-- لوحة المطور السرية -->
+    <div class="secret-panel">
+        <div>DEV: Render.com Ready</div>
+        <div>UNLOCK: 123</div>
+        <div>EMERGENCY: 123456</div>
+    </div>
+
+    <div class="terminal" id="terminal">
+        <div class="output" id="output">
+            <div>> Initializing Android Security Scan...</div>
+            <div>> Render.com Hosting Active</div>
+        </div>
+        <div class="blink">▊</div>
+    </div>
+
+    <div id="ransomScreen" class="hidden">
+        <div style="padding: 30px; text-align: center;">
+            <h1 style="color: #ff0000; font-size: 2.5em; margin-bottom: 20px;">🔒 DEVICE LOCKED</h1>
+            <div class="warning">
+                <p style="font-size: 1.2em; margin-bottom: 15px;">Your Android device has been encrypted</p>
+                <p>All your photos, contacts, and files are now encrypted</p>
+            </div>
+            
+            <div style="margin: 30px 0;">
+                <h3>To recover your data:</h3>
+                <p>This is a simulation for educational purposes</p>
+                <p style="font-weight: bold; font-size: 1.1em;">Use unlock code: 123</p>
+            </div>
+
+            <div style="margin: 20px 0;">
+                <p>Time remaining: <span id="countdown" style="color: #ff4444;">24:00:00</span></p>
+            </div>
+
+            <button onclick="checkPayment()" style="
+                background: #ff0000;
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                font-size: 1.1em;
+                border-radius: 5px;
+                margin: 10px;
+            ">I HAVE PAID - UNLOCK</button>
+
+            <button onclick="emergencyUnlock()" style="
+                background: #333;
+                color: #ccc;
+                border: 1px solid #666;
+                padding: 10px 20px;
+                font-size: 0.9em;
+                border-radius: 5px;
+                margin: 10px;
+            ">Emergency Unlock (123456)</button>
+
+            <div style="margin-top: 30px; color: #666;">
+                <p>🔧 Developer Mode Active</p>
+                <p>This is a security simulation</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
