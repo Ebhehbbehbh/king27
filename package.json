@@ -1,0 +1,15 @@
+{
+  "name": "android-security-simulator",
+  "version": "1.0.0",
+  "description": "Android security simulation for educational purposes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "keywords": ["security", "simulation", "educational"],
+  "author": "Security Researcher",
+  "license": "MIT"
+}
